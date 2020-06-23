@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# keys
+id_rsa2
+
+.travis copy.yml.bak
