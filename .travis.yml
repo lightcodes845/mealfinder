@@ -27,3 +27,4 @@ before_deploy:
   - eval "$(ssh-agent -s)" # Start ssh-agent cache
   - chmod 600 .travis/id_rsa2 # Allow read access to the private key
   - ssh-add .travis/id_rsa2 # Add the private key to SSH
+  - echo -e "Host ${SSH_HOST}\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
