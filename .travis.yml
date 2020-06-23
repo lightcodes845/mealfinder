@@ -1,16 +1,16 @@
 language: node_js
 node_js:
-  - node
+- node
 cache: npm
 env:
   global:
-    - secure: r1G4WIfARhPhTuC0SF3OPRRH8g/VlNl0cgKrj3UNQIAIvyLN75HTfPluAU78KtoLjzbmSTur1LZQmmO5+YFcZv4zmaQYzVocaJiBLLvfCPdqxh+PNYhxRJJL0Ah0ppNklNcZqBNh1mV5BMm/6iuwFV48Qunpsz1VixO5fmFb+MnGk7txdQPu2XwuKVS/C+tI721oaPMDD3TpEQAGyyKGalTv5rE9r3P73kkqKbmi05wCCIoqf+U3yc/vZl+3285WGuaYGAKrQFoUMMxUwb3RrkLlqvEn8a8gFB/qPAGxHlsdbFJPHqxkKFz1f4RtS++mHraNZbb2/Q6QByjfXIGxGs9ksfMSflODZfr4FlbYi/UQcWd9ij9jaqxHAqwrPwN+w1eqDhZVI+Rqqg0Wjo3ny0TFXXflzn0y74QBrP0knqRHx1Yu1+y3VqSCmbgn5rsXHJkinywaPnWSZ79/B1p7o/kQCDAT/gqxt8w0CA+torDYX4um8D2mXRvXFvwaLPMQL5fhvRfwnh7wvwiOYAMZZEgD2jqPCXEHFBEBIPDo4Gmv4xyqfMlkBbKpYoYKgW63osihy+ja/P5kxAGbLaikkU61eY1DCHz1op5NxK60KvFzUbxIrUs7S7eH/GE99VdnRTDvBehyoV+WctwtDMkwdul3RGvWR6BZ3wmJkivNtIc=
-    - secure: Hgn7sgQGgG/LjOdD7NOb+PTpTou5CiT9UEvPedYZZxUiu59OSAEdGUjow/vBjkhYz+/mmS+wEpsGk9j9bRnpIzMxh+psCmns6BnjTM8cKtbC0oa6F8wEeEpwdFSqhZzNCFr0R6NwIkN7tVboseh9ImjHJ3FswEY9vyJXM0RlyA9g7n4cxwkw4fmztqXFmTIhxl2S7j9Rxi9sfveG4cYgV2Z2RcIajOPKDVzi8MiBbUnz6CHQ4zbzvHJwHKpr4zaaNklZ14vp3Y5ufD16p5IqTGn7LKFC2uUhZS9I/HlIQMMEE7se3HihglqMjjjpbR6yiRczbrvtlxl+z9UzS/a0XbRP8RWuYT/DDh/UwNSWx6yqAdEzGSXlhlSPlB85hlEvCzTZ3rsqcwJ4BhXmhq2/XMgwcmZPlhPloqXis0xUNPDgpETwKlhKgKiPuQneb+Ape/ekoN1sLMELjczLFTxoZNrgZiZL3jkqmccKg7hVpSXrYJmBW2MY1AaCB+wpFK8q+FPPdhj7UZbPQYn/hfrQoelZP2tygWosDz5b/MHj66cdClGk/iSaPkGJPNlF4+de3RavRjJQn93vNTDYvwSd34ghETqCzGvZbmVR1k7AmM6PqA7MKXstE2oJLm8owPalQYrYYC1LsYPRpFdxHZtA8DuHupKCaSBCU+/SUEOuse4=
+  - secure: r1G4WIfARhPhTuC0SF3OPRRH8g/VlNl0cgKrj3UNQIAIvyLN75HTfPluAU78KtoLjzbmSTur1LZQmmO5+YFcZv4zmaQYzVocaJiBLLvfCPdqxh+PNYhxRJJL0Ah0ppNklNcZqBNh1mV5BMm/6iuwFV48Qunpsz1VixO5fmFb+MnGk7txdQPu2XwuKVS/C+tI721oaPMDD3TpEQAGyyKGalTv5rE9r3P73kkqKbmi05wCCIoqf+U3yc/vZl+3285WGuaYGAKrQFoUMMxUwb3RrkLlqvEn8a8gFB/qPAGxHlsdbFJPHqxkKFz1f4RtS++mHraNZbb2/Q6QByjfXIGxGs9ksfMSflODZfr4FlbYi/UQcWd9ij9jaqxHAqwrPwN+w1eqDhZVI+Rqqg0Wjo3ny0TFXXflzn0y74QBrP0knqRHx1Yu1+y3VqSCmbgn5rsXHJkinywaPnWSZ79/B1p7o/kQCDAT/gqxt8w0CA+torDYX4um8D2mXRvXFvwaLPMQL5fhvRfwnh7wvwiOYAMZZEgD2jqPCXEHFBEBIPDo4Gmv4xyqfMlkBbKpYoYKgW63osihy+ja/P5kxAGbLaikkU61eY1DCHz1op5NxK60KvFzUbxIrUs7S7eH/GE99VdnRTDvBehyoV+WctwtDMkwdul3RGvWR6BZ3wmJkivNtIc=
+  - secure: Hgn7sgQGgG/LjOdD7NOb+PTpTou5CiT9UEvPedYZZxUiu59OSAEdGUjow/vBjkhYz+/mmS+wEpsGk9j9bRnpIzMxh+psCmns6BnjTM8cKtbC0oa6F8wEeEpwdFSqhZzNCFr0R6NwIkN7tVboseh9ImjHJ3FswEY9vyJXM0RlyA9g7n4cxwkw4fmztqXFmTIhxl2S7j9Rxi9sfveG4cYgV2Z2RcIajOPKDVzi8MiBbUnz6CHQ4zbzvHJwHKpr4zaaNklZ14vp3Y5ufD16p5IqTGn7LKFC2uUhZS9I/HlIQMMEE7se3HihglqMjjjpbR6yiRczbrvtlxl+z9UzS/a0XbRP8RWuYT/DDh/UwNSWx6yqAdEzGSXlhlSPlB85hlEvCzTZ3rsqcwJ4BhXmhq2/XMgwcmZPlhPloqXis0xUNPDgpETwKlhKgKiPuQneb+Ape/ekoN1sLMELjczLFTxoZNrgZiZL3jkqmccKg7hVpSXrYJmBW2MY1AaCB+wpFK8q+FPPdhj7UZbPQYn/hfrQoelZP2tygWosDz5b/MHj66cdClGk/iSaPkGJPNlF4+de3RavRjJQn93vNTDYvwSd34ghETqCzGvZbmVR1k7AmM6PqA7MKXstE2oJLm8owPalQYrYYC1LsYPRpFdxHZtA8DuHupKCaSBCU+/SUEOuse4=
 script:
-  - npm test
-  - npm run build
+- npm test
+- npm run build
 after_success:
-  - curl --ftp-create-dirs -T filename sftp://${SFTP_USER}:${SFTP_PASSWORD}@faloladare.com.ng/public_html/filename
+- curl --ftp-create-dirs -T filename sftp://${SFTP_USER}:${SFTP_PASSWORD}@faloladare.com.ng/public_html/filename
 deploy:
   provider: script
   script: bash .travis/deploy.sh
@@ -20,5 +20,7 @@ deploy:
 notifications:
   email: true
 before_install:
-  - openssl aes-256-cbc -K $encrypted_cf62f93d0aa8_key -iv $encrypted_cf62f93d0aa8_iv
-    -in id_rsa2.enc -out .travis/id_rsa2 -d
+- openssl aes-256-cbc -K $encrypted_cf62f93d0aa8_key -iv $encrypted_cf62f93d0aa8_iv
+  -in id_rsa2.enc -out ~\/.ssh/id_rsa2 -d
+- openssl aes-256-cbc -K $encrypted_cf62f93d0aa8_key -iv $encrypted_cf62f93d0aa8_iv
+  -in id_rsa2.enc -out .travis/id_rsa2 -d
