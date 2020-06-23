@@ -14,7 +14,7 @@ after_success:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build ${SFTP_USER}@faloladare.com.ng/public_html/
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ ${SSH_USER}@${SSH_HOST}:/${DEPLOY_DIR}
   on:
     branch: master
   local_dir: build
