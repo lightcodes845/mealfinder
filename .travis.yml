@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - node
+cache: npm
+env:
+  global:
+    - secure: ohUPn6acMPcAp84Jl59MydRPsqsSX6yBfX8S/3Z2lqQyb4FGFr2GWCkRPkINg8PD9akQ/dnsk+QYnZlMpsoAsmmbEYOVjw9JIt5R9BqwGFs5m+Y7d0iIPKxvubTkNKmvRcse5d1FAFUXlLvOLYYNEpXhI5B1x8MsVWzx1OoqeZLYFqCS4B79eQeCbEfOCc33o4JYSEOn2I2VSNlxAHOp/8SS08hQr0MozNr1ULnj3MixbzgtlUiYT7xrEGtoFTwsM/jw9xnW9U6CBRMh25z32eEevixjAwdZQy5CefwpqFMBeeU3WdtjCwNVNUTXoMcL9/xtbVcP6jPxUdJXiYwlEpw12zstu4ZB2DoSL/orUuNBNmYI8zylPaDzdRIwj0bZReZJYhEK95JOflCCvaBNeZ7epWzNntaCvkK5M4KPg416CTlLQnSDJZvnrSV8IWJ89FvVKimBOzSBjio3BiQ3y1FxZg14xaTfDdCUf5RDihULFRn4VvtFgY3mvKVB9FdYO92y2PUTg9QwUxpfFbTlTRxiD+LFUF1kEUQbI8woTL9Oo/GX3953JGBD0vWdaEYkqRwGSjMCe/S+jLs6xTnboUkPEEmLky/jz5jamnPfeSXajkDnx/XBbZBO9/Dh/U9IScJwS7+ZtQJ7FZyqDUZqLPSGrcYLpaiCJhwUx8WfS7M=
+    - secure: NLoqZU0YxVUXHCoSiXHuDEzQo5pS3Thq9j4JatiuhjmYobnn9rLnDaUu5WmiAWxtIaRuGR841U6KBoy9sDO1rLJZegKIElGO4eO4PtV84OFvs49NX0BxG/0I7qpuEEOfQGSaqIgjjguYFFN3obifthNCbH+5BPTgzzKwlVx22JONKz5PO/HDuWLkBpH21drTJUC+Hr3g3tUqd1s79SGG1zNQszNQZhPzLynq+eqkBvkNWw+zgM/NcrAl4zhA72Bg4xPHKhsB4GQTKvTf/DkwxaO8cLU2nhB6EDtpW8tWGwua2YC90gZPbGofxikHmPZAS7Q31ZFurtQlQL4zr+jOmiE0JOo0/TuZ8lJAwTnBT+luQS+iWemn6viNSKpcrf8QQ/+pfib55zDc4Bj8rjBmcs7i/Ivn82+kTAZkwJL/soex9s3qiF+tGyt3vVGYuVrzYXF1RnosaOKHuppSHaug5vhZr1flotlT8F6W3DBWxGE/wFTqTTHLT6LDXIbuFcJeP9OjiKKFEqf4/vyDzixwe0eSxRVt8j3n+UymxmyUwoitrgRlQCfbbfKTw1+A5+J/udv9M3o46BtspljeBCsMdgyhXF5ovW9NXykVjkiMMzcRsfnvIdIbtkF+5ubCndfZlF+vs22AlnZ6d5N5QF1LZQ5kH/kYKZk1qTFSUP/+GiM=
+
+script:
+  - npm test
+  - npm run build
+after_success:
+  - curl --ftp-create-dirs -T filename sftp://${SFTP_USER}:${SFTP_PASSWORD}@faloladare.com.ng/public_html/filename
+deploy:
+  local_dir: build
+notifications:
+  email: true
