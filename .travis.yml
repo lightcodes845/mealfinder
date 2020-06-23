@@ -13,7 +13,8 @@ after_success:
   - curl --ftp-create-dirs -T filename sftp://${SFTP_USER}:${SFTP_PASSWORD}@faloladare.com.ng/public_html/filename
 deploy:
   provider: script
-  script: bash .travis/deploy.sh
+  skip_cleanup: true
+  script: rsync -r --delete-after --quiet build/<dir> ${SFTP_USER}@faloladare.com.ng/public_html/
   on:
     branch: master
   local_dir: build
