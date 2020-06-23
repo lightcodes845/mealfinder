@@ -14,7 +14,7 @@ after_success:
 deploy:
   provider: script
   skip_cleanup: true
-  script: scp $TRAVIS_BUILD_DIR/ ${SSH_USER}@${SSH_HOST}:/${DEPLOY_DIR}
+  script: scp -r $TRAVIS_BUILD_DIR/build/* ${SSH_USER}@${SSH_HOST}:/${DEPLOY_DIR}
   on:
     branch: master
   local_dir: build
