@@ -1,0 +1,18 @@
+@import './index';
+
+.App {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: $heading__fontsize;
+  margin-bottom: $margin__bottom;
+  color: #fff;
+}
