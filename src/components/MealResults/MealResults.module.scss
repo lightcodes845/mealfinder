@@ -1,0 +1,52 @@
+.meal {
+  &__results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 2rem;
+  }
+
+  &__result {
+    position: relative;
+    overflow: hidden;
+
+    &:hover::before,
+    &:hover figcaption {
+      opacity: 1;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      transition: opacity 0.4s ease-in-out;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    figure {
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    figcaption {
+      z-index: 5;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.6rem;
+      color: #fff;
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+  }
+}
