@@ -9,12 +9,10 @@ env:
 script:
   - rm -rf $TRAVIS_BUILD_DIR/build
   - npm run build
-after_success:
-  - curl --ftp-create-dirs -T filename sftp://${SFTP_USER}:${SFTP_PASSWORD}@faloladare.com.ng/public_html/filename
 deploy:
   provider: script
   skip_cleanup: true
-  script: scp -r $TRAVIS_BUILD_DIR/build/* ${SSH_USER}@${SSH_HOST}:/${DEPLOY_DIR}
+  script: scp -r $TRAVIS_BUILD_DIR/build/* ${SSH_USER}@${SSH_HOST}:/${DEPLOY_DIR}/mealfinder
   on:
     branch: master
   local_dir: build
