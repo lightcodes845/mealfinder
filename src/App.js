@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import SearchForm from './components/SearchForm/SearchForm';
 import classes from './App.module.scss';
-// import LetSuspense from './components/LetSuspense/LetSuspense';
+
 import MRSkeleton from './components/MRSkeleton/MRSkeleton';
 import MealResults from './components/MealResults/MealResults';
 import ErrorHandler from './components/Error/ErrorHandler';
