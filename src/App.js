@@ -7,6 +7,8 @@ import classes from './App.module.scss';
 import MRSkeleton from './components/MRSkeleton/MRSkeleton';
 import MealResults from './components/MealResults/MealResults';
 import ErrorHandler from './components/Error/ErrorHandler';
+import MealInfo from './components/MealInfo/MealInfo';
+import MISkeleton from './components/MISkeleton/MealInfo';
 
 class App extends Component {
   state = {
@@ -14,6 +16,8 @@ class App extends Component {
     payload: [],
     loading: false,
     error: null,
+    currentMeal: null,
+    randomMeal: false,
   };
 
   componentDidUpdate() {
@@ -33,7 +37,14 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.setState({ loading: true, payload: [] });
+    if (this.state.query.trim() === '') return;
+
+    this.setState({
+      loading: true,
+      payload: [],
+      currentMeal: null,
+      randomMeal: false,
+    });
   };
 
   closeErrorMessage = () => {
@@ -41,8 +52,11 @@ class App extends Component {
   };
 
   handleAsync = async () => {
-    console.log(this.state);
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${this.state.query}`;
+    const url = !this.state.randomMeal
+      ? `https://www.themealdb.com/api/json/v1/1/search.php?s=${this.state.query}`
+      : 'https://www.themealdb.com/api/json/v1/1/random.php';
+
+    console.log(this.state.randomMeal, url);
     const payload = [];
     let response;
 
@@ -106,30 +120,79 @@ class App extends Component {
           measure,
         });
       }
-      this.setState({
-        payload: payload,
-        loading: false,
-        query: '',
-      });
+      if (this.state.randomMeal) {
+        this.setState({
+          payload: payload,
+          loading: false,
+          currentMeal: payload[0],
+        });
+      } else {
+        this.setState({
+          payload: payload,
+          loading: false,
+          query: '',
+        });
+      }
     } catch (error) {
       this.setState({
         error: error.message,
         loading: false,
         payload: [],
         query: '',
+        currentMeal: null,
+        randomMeal: false,
       });
     }
+  };
+
+  randomMealHandler = event => {
+    event.preventDefault();
+    this.setState({
+      payload: [],
+      randomMeal: true,
+      loading: true,
+      currentMeal: null,
+    });
+  };
+
+  handleMealClick = event => {
+    if (event.target.dataset.id) {
+      const id = event.target.dataset.id;
+      const object = this.state.payload.find(data => data.id === id);
+      if (object) {
+        this.setState({ currentMeal: object });
+      } else {
+        this.setState({ error: 'Invalid selection' });
+      }
+    }
+  };
+
+  goBack = event => {
+    // event.preventDefault();
+
+    this.setState({ currentMeal: null });
   };
 
   render() {
     let renderData = null;
 
     if (this.state.loading && this.state.payload.length === 0) {
-      renderData = <MRSkeleton />;
+      renderData = this.state.randomMeal ? <MISkeleton /> : <MRSkeleton />;
     }
 
     if (!this.state.loading && this.state.payload.length > 0) {
-      renderData = <MealResults alldata={this.state.payload} />;
+      renderData = this.state.currentMeal ? (
+        <MealInfo
+          data={this.state.currentMeal}
+          randomMeal={this.state.randomMeal}
+          back={this.goBack}
+        />
+      ) : (
+        <MealResults
+          alldata={this.state.payload}
+          click={this.handleMealClick}
+        />
+      );
     }
     // console.log('rendering...');
     return (
@@ -145,6 +208,7 @@ class App extends Component {
           query={this.state.query}
           change={this.handleQuery}
           handleSubmit={this.handleSubmit}
+          handleRandom={this.randomMealHandler}
         />
         {renderData}
       </div>

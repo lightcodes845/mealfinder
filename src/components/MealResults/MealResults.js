@@ -3,7 +3,7 @@ import classes from './MealResults.module.scss';
 
 export default function MealResults(props) {
   return (
-    <div className={classes.meal__results}>
+    <div className={classes.meal__results} onClick={props.click}>
       {props.alldata.map(data => (
         <div key={data.id} className={classes.meal__result} data-id={data.id}>
           <figure>

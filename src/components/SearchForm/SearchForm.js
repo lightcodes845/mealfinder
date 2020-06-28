@@ -17,11 +17,10 @@ export default function SearchForm(props) {
         <button type="submit" className={classes.searchbtn}>
           <Zoom className={classes.ZOOM} />
         </button>
-
-        <button className={classes.random}>
-          <Shuffle className={classes.Shuffle} />
-        </button>
       </form>
+      <button onClick={props.handleRandom} className={classes.random}>
+        <Shuffle className={classes.Shuffle} />
+      </button>
     </div>
   );
 }

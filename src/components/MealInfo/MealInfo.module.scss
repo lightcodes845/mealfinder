@@ -1,0 +1,78 @@
+@import '../../index';
+
+.meal {
+  &__info {
+    width: 80%;
+    margin: 5rem auto;
+    text-align: center;
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__video {
+    display: inline-block;
+    margin-bottom: $margin__bottom;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+    &.skeleton {
+      width: 40rem;
+      height: 30rem;
+    }
+  }
+
+  &__categories {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    font-size: 2rem;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border: 2px dotted gold;
+    margin-bottom: 3rem;
+  }
+
+  &__instruction {
+    width: 100%;
+
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    text-align: justify;
+    margin-bottom: 3rem;
+    &.skeleton {
+      height: 30rem;
+    }
+  }
+
+  &__ingredient {
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: $margin__bottom;
+    }
+  }
+
+  &__ingredients {
+    // display: flex;
+    // flex-wrap: wrap;
+
+    span {
+      display: inline-block;
+      border-radius: 3px;
+      padding: 0.25rem 0.75rem;
+      background-color: #fff;
+      color: black;
+      font-size: 1.6rem;
+      margin: 0 5px 5px 0;
+      &.skeleton {
+        width: 10rem;
+        height: 3rem;
+      }
+    }
+  }
+}
