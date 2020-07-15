@@ -51,9 +51,17 @@ function checkValidServiceWorker(swUrl, config) {
 }
 
 export function register(config) {
+  // console.log(isLocalhost);
+  // console.log(window.location.href);
+  // console.log(window.location.origin);
+  // console.log(process.env);
+  // const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
+  // console.log(publicUrl);
+  // console.log('serviceWorker' in navigator);
+  // console.log(navigator);
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
-    console.dir(process.env);
+    console.dir(process.env + 'in if stmt');
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
@@ -61,12 +69,15 @@ export function register(config) {
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
       return;
     }
-
+    // console.log('here... after public url test');
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      console.log('PRINTING SW INFO...');
       console.log(swUrl);
+      console.log(isLocalhost);
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
+        console.log(navigator);
         checkValidServiceWorker(swUrl, config);
 
         // Add some additional logging to localhost, pointing developers to the
@@ -79,6 +90,7 @@ export function register(config) {
         });
       } else {
         // Is not localhost. Just register service worker
+        // console.log('Here not localhost...');
         registerValidSW(swUrl, config);
       }
     });
