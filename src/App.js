@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import MealDB from './mealIndexDB';
 import SearchForm from './components/SearchForm/SearchForm';
 import classes from './App.module.scss';
 
@@ -19,6 +19,11 @@ class App extends Component {
     currentMeal: null,
     randomMeal: false,
   };
+
+  constructor() {
+    super();
+    this.mealdb = new MealDB('mealsdb__test', 1);
+  }
 
   componentDidUpdate() {
     // console.log('Update LC');
@@ -57,10 +62,17 @@ class App extends Component {
       : 'https://www.themealdb.com/api/json/v1/1/random.php';
 
     console.log(this.state.randomMeal, url);
-    const payload = [];
+    let payload = [];
     let response;
 
     try {
+      // const dbmeal =
+      //   !this.state.randomMeal && (await this.mealdb.getMeal(this.state.query));
+
+      // if (false) {
+      //   console.log(dbmeal);
+      //   payload = dbmeal.payload;
+      // } else {
       response = await axios.get(url);
 
       const meals = response.data.meals;
@@ -120,6 +132,14 @@ class App extends Component {
           measure,
         });
       }
+
+      // add payloads to database
+      // this.mealdb.addMeals(this.state.query, {
+      //   name: this.state.query,
+      //   payload,
+      // });
+      // }
+
       if (this.state.randomMeal) {
         this.setState({
           payload: payload,
@@ -127,6 +147,7 @@ class App extends Component {
           currentMeal: payload[0],
         });
       } else {
+        console.log(payload);
         this.setState({
           payload: payload,
           loading: false,
@@ -142,6 +163,7 @@ class App extends Component {
         currentMeal: null,
         randomMeal: false,
       });
+      console.log(error);
     }
   };
 
